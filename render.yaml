@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: toji-host
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python TOJI_HOST.py
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: FAMWAY_API_KEY
+        sync: false
+      - key: FAMWAY_BASE
+        value: https://famway.onrender.com
+      - key: BOT_URL
+        sync: false
+      - key: MANUAL_UPI_ID
+        value: rohit.hacrr@fam
+      - key: PYTHON_VERSION
+        value: 3.11.11
